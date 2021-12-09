@@ -10,10 +10,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
     {
 
         internal static void MainMenu()
-        {
+        {  
+            char choice;
             do {
-                Console.WriteLine("Digita 1 per accedere, 2 per registarti, 3 per uscire");
-                int choice;
+                Console.WriteLine("Digita 1 per accedere, 2 per registarti, Q per uscire");
+                
                 choice = Console.ReadKey().KeyChar;
 
 
@@ -23,12 +24,15 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         break;
                     case '2':
                         break;
+                    case 'Q':
+                        Console.WriteLine("Alla prossima partita");
+                        break;
                     default: Console.WriteLine("Scelta non disponibile");
                         break;
                 }
 
 
-            } while (choice != );
+            } while (choice != 'Q');
             
 
         }
@@ -62,6 +66,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     case '5':
                         break;
                     case 'Q':
+                        Console.WriteLine("Alla prossima partita");
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
@@ -92,10 +97,9 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         CreaEroeUser();
                         break;
                     case '3':
-                        EliminaEroeUser();
                         break;
                     case 'Q':
-                        Console.WriteLine("Grazie per aver giocato con noi!");
+                        Console.WriteLine("Alla prossima partita");
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
