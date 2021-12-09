@@ -234,9 +234,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static void CreaEroe()
         {
             string heroName;
-            bool isNameUsed;
+            bool isNameUsed, flagWeapon, success;
             char choice;
             CatEnum cat;
+            int idWeapon;
+            Hero hero = new Hero();
             Console.WriteLine("Inserisci il nome dell'eroe");
             do
             {
@@ -244,8 +246,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 isNameUsed = IsNameUsed(heroName);
                 if(isNameUsed == true)
                     Console.WriteLine("E' già presente un eroe con questo nome");
-
             } while (isNameUsed == true);
+            hero.Name = heroName;
 
 
             Console.WriteLine("Inserisci la categoria dell'eroe");
@@ -259,11 +261,10 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                         cat = CatEnum.Warrior;
-                        
+                        hero.Category = CatEnum.Warrior;
                         break;
                     case '2':
-                        cat = CatEnum.Magician;
+                        hero.Category = CatEnum.Magician;
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
@@ -273,8 +274,19 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             Console.WriteLine("Inserisci l'arma dell'eroe");
 
-            //PrintWeaponsByCategory(cat);
-
+            do
+            {
+                PrintWeaponsByCategory(hero.Category);
+                idWeapon = int.Parse(Console.ReadLine());
+                flagWeapon = IsWeaponsForThisCategory(idWeapon, (int)hero.Category);
+                if (flagWeapon == false)
+                    Console.WriteLine("Inserisci un id dell'arma valido");
+            } while (flagWeapon == false);
+            
+            hero.IdWeapon = idWeapon;
+            //hero.IdUser = utente.IdUser;
+            success = bl.InsertHero(hero);
+            
             Console.WriteLine("Eroe inserito");
         }
 
@@ -297,6 +309,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
             List<Weapon> weapons = bl.GetWeaponsByCategory(cat);
             foreach (Weapon weapon in weapons)
                 Console.WriteLine(weapon);
+        }
+
+        private static bool IsWeaponsForThisCategory(int id, int cat)
+        {
+            return bl.GetWeaponsById(id).IdCategory == cat;
         }
 
 

@@ -72,6 +72,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return weaponRepo.Fetch(w => w.IdCategory == (int)cat).ToList();
         }
 
+        public Weapon GetWeaponsById(int id)
+        {
+            return weaponRepo.Fetch(w => w.IdWeapon == id).ToList().FirstOrDefault();
+        }
+
         public List<Weapon> GetAllWeapons()
         {
             return weaponRepo.Fetch().ToList();
@@ -85,6 +90,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         public List<User> FetchUtenti(List<Hero> heroes)
         {
             return userRepo.FetchByHeroes(heroes);
+        }
+
+        public bool InsertHero(Hero hero)
+        {
+            return heroRepo.Add(hero);
         }
 
         public bool isUserAdmin(string username)

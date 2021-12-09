@@ -10,8 +10,8 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Level { get; set; }
-        public int LifePoints { get; set; }
+        public int Level { get; set; } = 1;
+        public int LifePoints { get; set; } = 20;
         public CatEnum Category { get; set; }
         public int IdWeapon { get; set; }
 
