@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MostriEroiMattanaVaccaSalis.Core.Entities
 {
-    internal class Monster: Character
+    public class Monster: Character
     {
     }
 }
