@@ -194,7 +194,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        cat = CatEnum.Warrior;
+                         cat = CatEnum.Warrior;
+                        
                         break;
                     case '2':
                         cat = CatEnum.Magician;
