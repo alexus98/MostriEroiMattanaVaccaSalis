@@ -21,8 +21,10 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
+                        SignIn();
                         break;
                     case '2':
+                        SignUp();
                         break;
                     case 'Q':
                         Console.WriteLine("Alla prossima partita");
@@ -37,6 +39,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         }
 
+        
 
         internal static void AdminMenu()
         {
@@ -118,8 +121,19 @@ namespace MostriEroiMattanaVaccaSalis.Client
             throw new NotImplementedException();
         }
         #endregion
-        
-        
+
+        #region Metodi MainMenu
+        private static void SignIn()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SignUp()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
     }
 }
 
