@@ -12,12 +12,12 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         public string WeaponName { get; set; }
         public int Damage { get; set; }
         
-        public int IdCategory { get; set; }
+        public CatEnum IdCategory { get; set; }
 
 
-        //public override string ToString()
-        //{
-        //    return $"[{IdWeapon}] ";
-        //}
+        public override string ToString()
+        {
+            return $"[{IdWeapon}] - {WeaponName} danno: {Damage} categoria: {IdCategory}";
+        }
     }
 }
