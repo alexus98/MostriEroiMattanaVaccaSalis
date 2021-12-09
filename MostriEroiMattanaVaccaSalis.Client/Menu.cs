@@ -24,14 +24,15 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         break;
                     case '2':
                         break;
-                   
+                    case 'Q':
+                        Console.WriteLine("Alla prossima partita");
+                        break;
                     default: Console.WriteLine("Scelta non disponibile");
                         break;
                 }
 
 
             } while (choice != 'Q');
-            Console.WriteLine("Alla prossima partita");
             
 
         }
@@ -65,6 +66,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     case '5':
                         break;
                     case 'Q':
+                        Console.WriteLine("Alla prossima partita");
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
@@ -95,6 +97,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     case '3':
                         break;
                     case 'Q':
+                        Console.WriteLine("Alla prossima partita");
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
