@@ -49,7 +49,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             char choice;
             do
             {
-                Console.WriteLine("Scegli 1 per Giocare\n+" +
+                Console.WriteLine("Scegli 1 per Giocare\n" +
                 "Scegli 2 per Creare un nuovo eroe\n" +
                 "Scegli 3 per Eliminare un eroe\n" +
                 "Scegli 4 per Creare un nuovo mostro\n" +
@@ -91,7 +91,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             char choice;
             do
             {
-                Console.WriteLine("Scegli 1 per Giocare\n+" +
+                Console.WriteLine("Scegli 1 per Giocare\n" +
                 "Scegli 2 per Creare un nuovo eroe\n" +
                 "Scegli 3 per Eliminare un eroe\n" +
                 "Scegli Q per Uscire");
@@ -164,12 +164,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 Console.WriteLine("Inserire Nickname\n");
                 username = Console.ReadLine();
                 check = bl.CheckNickName(username);
-                if (!check)
+                if (check)
                 {
                     Console.WriteLine("Nickname già in uso");
                 }
             }
-            while (!check);
+            while (check);
 
             Console.WriteLine("Inserire password");
             string password = Console.ReadLine();
@@ -270,7 +270,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         Console.WriteLine("Scelta non valida");
                         break;
                 }
-            } while (choice != '1' || choice != '2');
+            } while (choice != '1' && choice != '2');
 
             Console.WriteLine("Inserisci l'arma dell'eroe");
 
@@ -315,8 +315,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             return bl.GetWeaponsById(id).IdCategory == cat;
         }
-
-
         #endregion
         
         

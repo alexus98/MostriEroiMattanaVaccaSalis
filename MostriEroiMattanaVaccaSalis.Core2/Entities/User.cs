@@ -21,6 +21,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
             IdUser = id;    
         }
 
+        public User()
+        {
+
+        }
+
         public override string ToString()
         {
             return $"[{IdUser}] - Nickname: {NickName} Admin: {IsAdmin} \n";

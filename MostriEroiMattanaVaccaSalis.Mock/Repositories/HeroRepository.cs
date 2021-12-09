@@ -30,6 +30,7 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
 
         public bool Add(Hero hero)
         {
+            hero.Id = MemoryStorage.Heroes.Last().Id + 1;
             MemoryStorage.Heroes.Add(hero);
             return true;
         }
