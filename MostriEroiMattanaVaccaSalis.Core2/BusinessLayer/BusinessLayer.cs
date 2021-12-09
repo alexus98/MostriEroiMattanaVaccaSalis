@@ -23,6 +23,10 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
            weaponRepo = weapon;
 
         }
+        public Hero GetHeroByName(string heroName)
+        {
+            return heroRepo.Fetch(h => h.Name == heroName).ToList().FirstOrDefault();
+        }
 
         public List<Hero> GetAllHeroes()
         {
@@ -31,7 +35,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public Hero GetHeroById(int id)
         {
-            heroRepo.GetById(id);
+            return heroRepo.Fetch(h => h.Id == id).ToList().FirstOrDefault();
         }
 
         public bool DeleteHero(Hero eroe)

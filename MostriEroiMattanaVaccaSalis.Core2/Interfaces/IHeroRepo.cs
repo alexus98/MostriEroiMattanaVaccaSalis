@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
 {
-    public interface IHeroRepo: IRepository<Hero>
+    public interface IHeroRepo : IRepository<Hero>
     {
+        Hero GetById(int id);
     }
 }
