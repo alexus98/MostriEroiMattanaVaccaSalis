@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MostriEroiMattanaVaccaSalis.Core.BusinessLayer;
+using MostriEroiMattanaVaccaSalis.Mock.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 {
     internal class Menu
     {
-
+        private static readonly BusinessLayer bl = new BusinessLayer(new UserRepository(), new HeroRepository(), new MonsterRepository(),new WeaponRepository());
         internal static void MainMenu()
         {  
             char choice;
