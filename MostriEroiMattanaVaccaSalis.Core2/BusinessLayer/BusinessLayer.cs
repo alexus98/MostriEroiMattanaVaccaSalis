@@ -28,10 +28,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return heroRepo.Fetch(h => h.Name == heroName).ToList().FirstOrDefault();
         }
-        public Hero GetHeroByName(string heroName)
-        {
-            return heroRepo.Fetch(h => h.Name == heroName).ToList().FirstOrDefault();
-        }
 
         public List<Hero> GetAllHeroes()
         {
@@ -45,7 +41,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public bool DeleteHero(Hero eroe)
         {
-            throw new NotImplementedException();
+            return heroRepo.Delete(eroe);
         }
     }
 }
