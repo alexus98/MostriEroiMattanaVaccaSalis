@@ -154,7 +154,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static void CreaEroe()
         {
             string heroName;
+            bool flagNome = false;
             Console.WriteLine("Inserisci il nome dell'eroe");
+            do
+            {
+
+            } while (flagNome == false);
             heroName = Console.ReadLine();
             Console.WriteLine("Inserisci la categoria dell'eroe");
             Console.WriteLine("Inserisci l'arma dell'eroe");
