@@ -43,5 +43,15 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return heroRepo.Delete(eroe);
         }
+
+        public List<Hero> FetchClassica()
+        {
+            return heroRepo.FetchTop10();
+        }
+
+        public List<User> FetchUtenti(List<Hero> heroes)
+        {
+            return userRepo.FetchByHeroes(heroes);
+        }
     }
 }
