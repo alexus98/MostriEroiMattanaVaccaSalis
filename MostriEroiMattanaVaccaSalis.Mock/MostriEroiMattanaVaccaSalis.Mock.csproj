@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MostriEroiMattanaVaccaSalis.Core2\MostriEroiMattanaVaccaSalis.Core.csproj" />
+  </ItemGroup>
+
 </Project>
