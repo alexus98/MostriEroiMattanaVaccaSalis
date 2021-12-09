@@ -10,23 +10,42 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
 {
     public class UserRepository : IUserRepo
     {
-        
+
+
         public bool CheckCredentials(string username, string password)
         {
             List<User> users = MemoryStorage.Users;
-            users.Where(u => u.NickName == username && u.Password == password).ToList();  
-            if(users != null)
+            users.Where(u => u.NickName == username && u.Password == password).ToList();
+            if (users != null)
             {
                 return true;
             }
             return false;
-            
-            throw new NotImplementedException();
         }
-    
+
         public IEnumerable<User> Fetch(Func<User, bool> lambda = null)
         {
+
             throw new NotImplementedException();
+        }
+
+
+        public bool CheckNickName(string? username)
+        {
+            List<User> users = MemoryStorage.Users;
+            
+            return users.Exists(u => u.NickName == username);   
+        }
+
+        public bool AddUser(User user)
+        {
+            MemoryStorage.Users.Add(user);
+            return true;
+        }
+
+        public int GetAvailableId()
+        {
+            return MemoryStorage.Users.
         }
     }
 }

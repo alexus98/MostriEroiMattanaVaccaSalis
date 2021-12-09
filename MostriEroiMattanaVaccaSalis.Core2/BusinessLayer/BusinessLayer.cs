@@ -49,7 +49,22 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         public bool CheckCredentials(string username, string password)
         {
             return userRepo.CheckCredentials(username, password);
+            
+        }
+
+        public bool CheckNickName(string? username)
+        {
+            return userRepo.CheckNickName(username);
             throw new NotImplementedException();
+        }
+
+        public int GetAvailableId()
+        {
+            return userRepo.GetAvailableId();
+        }
+        public bool AddUser(User user)
+        {
+            return userRepo.AddUser(user);
         }
     }
 }

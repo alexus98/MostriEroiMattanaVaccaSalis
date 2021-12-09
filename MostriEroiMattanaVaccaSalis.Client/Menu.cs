@@ -186,26 +186,57 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             string username;
             string password;
-            bool 
+            bool checkOK;
             do {
                 Console.WriteLine("Inserire Username");
                 username = Console.ReadLine();
                 Console.WriteLine("Inserire Password");
                 password = Console.ReadLine();
-               if (bl.CheckCredentials(username, password))
+
+                checkOK = bl.CheckCredentials(username, password);
+               if (!checkOK)
                 {
                     Console.WriteLine("Credenziali errate! ");
                 }
                 
             }
-            while (!bl.CheckCredentials(username, password));
+            while (!checkOK);
             
             
         }
 
         private static void SignUp()
         {
-            throw new NotImplementedException();
+            bool check = false;
+            string username ;
+            do
+            {
+                Console.WriteLine("Inserire Nickname\n");
+                username = Console.ReadLine();
+                check = bl.CheckNickName(username);
+                if (!check)
+                {
+                    Console.WriteLine("Nickname già in uso");
+                }
+            }
+            while (!check);
+
+            Console.WriteLine("Inserire password");
+            string password = Console.ReadLine();
+
+            int id = bl.GetAvailableId();
+
+            User user = new User(username, password, id);
+            if (bl.AddUser(user))
+            {
+                UserMenu();
+            }else
+            {
+                Console.WriteLine("Qualcosa è andato storto!");
+            }
+
+
+            
         }
         #endregion
 
