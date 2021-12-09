@@ -28,5 +28,20 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return heroRepo.Fetch(h => h.Name == heroName);
         }
+
+        public List<Hero> GetAllHeroes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Hero GetHeroById(int id)
+        {
+            heroRepo.GetById(id);
+        }
+
+        public bool DeleteHero(Hero eroe)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

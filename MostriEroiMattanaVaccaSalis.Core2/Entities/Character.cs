@@ -17,7 +17,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
 
         public override string ToString()
         {
-            return $"{Name} - Livello: {Level} Cat:{Category} \nHP:{LifePoints} \nWeapon: {IdWeapon}\n";
+            return $"{Id} - {Name} - Livello: {Level} Cat:{Category} \nHP:{LifePoints} \nWeapon: {IdWeapon}\n";
         }
     }
 
