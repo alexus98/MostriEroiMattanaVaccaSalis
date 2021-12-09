@@ -153,8 +153,29 @@ namespace MostriEroiMattanaVaccaSalis.Client
         }
         private static void CreaEroe()
         {
-            throw new NotImplementedException();
+            string heroName;
+            bool flagNome = false;
+            Console.WriteLine("Inserisci il nome dell'eroe");
+            do
+            {
+
+            } while (flagNome == false);
+            heroName = Console.ReadLine();
+            Console.WriteLine("Inserisci la categoria dell'eroe");
+            Console.WriteLine("Inserisci l'arma dell'eroe");
+            Console.WriteLine("Eroe inserito");
         }
+
+
+
+
+        private static void isNameUsed(string heroName)
+        {
+            bl.GetHeroByName(heroName);
+        }
+
+
+
         #endregion
         
         

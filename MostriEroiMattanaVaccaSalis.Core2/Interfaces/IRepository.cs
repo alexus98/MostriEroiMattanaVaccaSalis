@@ -8,5 +8,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
 {
     public interface IRepository<T>
     {
+        IEnumerable<T> Fetch(Func<T, bool> lambda = null);
     }
 }
