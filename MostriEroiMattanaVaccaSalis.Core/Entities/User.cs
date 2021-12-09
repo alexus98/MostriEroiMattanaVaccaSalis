@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MostriEroiMattanaVaccaSalis.Core.Entities
 {
-    internal class User
+    public class User
     {
+        public string NickName { get; set; }
+        public int IdUser { get; set; }
+        public string Password { get; set; }
+        public bool IsAdmin { get; set; } = false;
     }
 }
