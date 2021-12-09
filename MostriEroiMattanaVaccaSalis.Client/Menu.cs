@@ -10,10 +10,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
     {
 
         internal static void MainMenu()
-        {
+        {  
+            char choice;
             do {
                 Console.WriteLine("Digita 1 per accedere, 2 per registarti, 3 per uscire");
-                int choice;
+                
                 choice = Console.ReadKey().KeyChar;
 
 
@@ -23,12 +24,14 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         break;
                     case '2':
                         break;
+                   
                     default: Console.WriteLine("Scelta non disponibile");
                         break;
                 }
 
 
-            } while (choice != );
+            } while (choice != 'Q');
+            Console.WriteLine("Alla prossima partita");
             
 
         }
