@@ -10,11 +10,18 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
 {
     public class HeroRepository : IHeroRepo
     {
+        public bool Delete(Hero eroe)
+        {
+            MemoryStorage.Heroes.Remove(eroe);
+            return true;
+        }
+
         public IEnumerable<Hero> Fetch(Func<Hero, bool> lambda = null)
         {
             if (lambda != null)
                 return MemoryStorage.Heroes.Where(lambda);
             return MemoryStorage.Heroes;
         }
+
     }
 }

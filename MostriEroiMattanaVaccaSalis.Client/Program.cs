@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using MostriEroiMattanaVaccaSalis.Client;
 
-Console.WriteLine("Hello, World!");
+Menu.MainMenu();

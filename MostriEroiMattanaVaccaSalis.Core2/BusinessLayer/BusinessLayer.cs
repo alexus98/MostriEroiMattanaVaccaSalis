@@ -41,7 +41,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public bool DeleteHero(Hero eroe)
         {
-            throw new NotImplementedException();
+            return heroRepo.Delete(eroe);
         }
 
         
