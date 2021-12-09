@@ -1,4 +1,5 @@
-﻿using MostriEroiMattanaVaccaSalis.Core.Interfaces;
+﻿using MostriEroiMattanaVaccaSalis.Core.Entities;
+using MostriEroiMattanaVaccaSalis.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,13 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             userRepo = user;
             heroRepo = hero;
             monsterRepo = monster;
-           weaponRepo = weapon;
+            weaponRepo = weapon;
+        }
 
+
+        public Hero GetHeroByName(string heroName)
+        {
+            return heroRepo.Fetch(h => h.Name == heroName);
         }
     }
 }
