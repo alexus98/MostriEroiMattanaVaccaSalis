@@ -86,12 +86,16 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
+                        //GiocaUser();
                         break;
                     case '2':
+                        CreaEroeUser();
                         break;
                     case '3':
+                        EliminaEroeUser();
                         break;
                     case 'Q':
+                        Console.WriteLine("Grazie per aver giocato con noi!");
                         break;
                     default:
                         Console.WriteLine("Scelta non valida");
@@ -99,5 +103,21 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 }
             } while (choice != 'Q');
         }
+
+        #region Metodi UserMenu
+        private static void EliminaEroeUser()
+        {
+            throw new NotImplementedException();
+        }
+        private static void CreaEroeUser()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        
+        
     }
 }
+
+
+
