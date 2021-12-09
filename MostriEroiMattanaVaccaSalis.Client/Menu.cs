@@ -11,6 +11,25 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         internal static void MainMenu()
         {
+            do {
+                Console.WriteLine("Digita 1 per accedere, 2 per registarti, 3 per uscire");
+                int choice;
+                choice = Console.ReadKey().KeyChar;
+
+
+                switch (choice)
+                {
+                    case '1':
+                        break;
+                    case '2':
+                        break;
+                    default: Console.WriteLine("Scelta non disponibile");
+                        break;
+                }
+
+
+            } while (choice != );
+            
 
         }
 
