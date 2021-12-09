@@ -1,4 +1,5 @@
-﻿using MostriEroiMattanaVaccaSalis.Core.Interfaces;
+﻿using MostriEroiMattanaVaccaSalis.Core.Entities;
+using MostriEroiMattanaVaccaSalis.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,21 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             monsterRepo = monster;
            weaponRepo = weapon;
 
+        }
+
+        public List<Hero> GetAllHeroes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Hero GetHeroById(int id)
+        {
+            heroRepo.GetById(id);
+        }
+
+        public bool DeleteHero(Hero eroe)
+        {
+            throw new NotImplementedException();
         }
     }
 }
