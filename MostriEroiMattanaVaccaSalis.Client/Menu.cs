@@ -94,12 +94,13 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        //GiocaUser();
+                        //Gioca();
                         break;
                     case '2':
-                        CreaEroeUser();
+                        CreaEroe();
                         break;
                     case '3':
+                        EliminaEroe();
                         break;
                     case 'Q':
                         Console.WriteLine("Alla prossima partita");
@@ -111,12 +112,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (choice != 'Q');
         }
 
-        #region Metodi UserMenu
-        private static void EliminaEroeUser()
+        #region Metodi Menu
+        private static void EliminaEroe()
         {
             throw new NotImplementedException();
         }
-        private static void CreaEroeUser()
+        private static void CreaEroe()
         {
             throw new NotImplementedException();
         }
