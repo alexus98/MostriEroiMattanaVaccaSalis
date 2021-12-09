@@ -47,5 +47,16 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
         {
             return MemoryStorage.Users.
         }
+
+        public List<User> FetchByHeroes(List<Hero> heroes)
+        {
+            List<User> utentiEroi = new List<User>();
+            foreach (var e in heroes)
+            {
+                User user = MemoryStorage.Users.Where(u => u.IdUser == e.IdUser).FirstOrDefault();
+                utentiEroi.Add(user);
+            }
+            return utentiEroi;
+        }
     }
 }

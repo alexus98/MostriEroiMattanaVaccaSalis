@@ -66,5 +66,25 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return userRepo.AddUser(user);
         }
+
+        public List<Weapon> GetWeaponsByCategory(CatEnum cat)
+        {
+            return weaponRepo.Fetch(w => w.IdCategory == (int)cat).ToList();
+        }
+
+        public List<Weapon> GetAllWeapons()
+        {
+            return weaponRepo.Fetch().ToList();
+        }
+
+        public List<Hero> FetchClassica()
+        {
+            return heroRepo.FetchTop10();
+        }
+
+        public List<User> FetchUtenti(List<Hero> heroes)
+        {
+            return userRepo.FetchByHeroes(heroes);
+        }
     }
 }
