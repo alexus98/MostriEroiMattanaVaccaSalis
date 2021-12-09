@@ -44,6 +44,29 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return heroRepo.Delete(eroe);
         }
 
+        
+
+        public bool CheckCredentials(string username, string password)
+        {
+            return userRepo.CheckCredentials(username, password);
+            
+        }
+
+        public bool CheckNickName(string? username)
+        {
+            return userRepo.CheckNickName(username);
+            throw new NotImplementedException();
+        }
+
+        public int GetAvailableId()
+        {
+            return userRepo.GetAvailableId();
+        }
+        public bool AddUser(User user)
+        {
+            return userRepo.AddUser(user);
+        }
+
         public List<Weapon> GetWeaponsByCategory(CatEnum cat)
         {
             return weaponRepo.Fetch(w => w.IdCategory == (int)cat).ToList();
@@ -62,6 +85,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         public List<User> FetchUtenti(List<Hero> heroes)
         {
             return userRepo.FetchByHeroes(heroes);
+        }
+
+        public bool isUserAdmin(string username)
+        {
+            throw new NotImplementedException();
         }
     }
 }
