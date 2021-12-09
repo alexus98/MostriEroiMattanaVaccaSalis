@@ -13,7 +13,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {  
             char choice;
             do {
-                Console.WriteLine("Digita 1 per accedere, 2 per registarti, 3 per uscire");
+                Console.WriteLine("Digita 1 per accedere, 2 per registarti, Q per uscire");
                 
                 choice = Console.ReadKey().KeyChar;
 
