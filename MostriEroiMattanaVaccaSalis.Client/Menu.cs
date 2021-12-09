@@ -59,14 +59,19 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
+                        //Gioca();
                         break;
                     case '2':
+                        CreaEroe();
                         break;
                     case '3':
+                        EliminaEroe();
                         break;
                     case '4':
+                        //CreaMostro();
                         break;
                     case '5':
+                        MostraClassifica();
                         break;
                     case 'Q':
                         Console.WriteLine("Alla prossima partita");
@@ -113,6 +118,20 @@ namespace MostriEroiMattanaVaccaSalis.Client
         }
 
         #region Metodi Menu
+
+        private static void MostraClassifica()
+        {
+            Console.WriteLine("---- CLASSIFICA ----");
+            List<Hero> heroes = bl.FetchClassica();
+            List<User> users = bl.FetchUtenti(heroes);
+            int i = 1;
+            foreach (var e in heroes)
+            {
+                User u = users.Where(u => u.IdUser == e.IdUser).FirstOrDefault();
+                Console.WriteLine($"{i}) {e.Name} - LVL: {e.Level} - Punti: {e.Exp} - Giocatore: {u.NickName}");
+                i++;
+            }
+        }
         private static void EliminaEroe()
         {
             List<Hero> eroi = bl.GetAllHeroes();

@@ -23,5 +23,9 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             return MemoryStorage.Heroes;
         }
 
+        public List<Hero> FetchTop10()
+        {
+            return MemoryStorage.Heroes.OrderByDescending(e => e.Level).ThenByDescending(e => e.Exp).Take(10).ToList();
+        }
     }
 }
