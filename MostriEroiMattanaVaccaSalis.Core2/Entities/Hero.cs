@@ -8,7 +8,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
 {
     public class Hero: Character
     {
-        public int Exp { get; set; }
+        public int Exp { get; set; } = 0;
         public int IdUser { get; set; }
 
         public override string ToString()
