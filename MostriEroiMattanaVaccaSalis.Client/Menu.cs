@@ -128,7 +128,23 @@ namespace MostriEroiMattanaVaccaSalis.Client
         #region Metodi MainMenu
         private static void SignIn()
         {
-            throw new NotImplementedException();
+            string username;
+            string password;
+            bool 
+            do {
+                Console.WriteLine("Inserire Username");
+                username = Console.ReadLine();
+                Console.WriteLine("Inserire Password");
+                password = Console.ReadLine();
+               if (bl.CheckCredentials(username, password))
+                {
+                    Console.WriteLine("Credenziali errate! ");
+                }
+                
+            }
+            while (!bl.CheckCredentials(username, password));
+            
+            
         }
 
         private static void SignUp()

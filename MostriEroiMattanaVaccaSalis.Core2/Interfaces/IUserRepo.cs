@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
 {
-    public interface IUserRepo: IRepository<User>
+    public interface IUserRepo : IRepository<User>
     {
+        bool CheckCredentials(string username, string password);
     }
 }
