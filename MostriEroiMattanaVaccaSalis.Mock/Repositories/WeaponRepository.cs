@@ -12,7 +12,9 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
     {
         public IEnumerable<Weapon> Fetch(Func<Weapon, bool> lambda = null)
         {
-            throw new NotImplementedException();
+            if (lambda != null)
+                return MemoryStorage.Weapon.Where(lambda);
+            return MemoryStorage.Weapon;
         }
     }
 }

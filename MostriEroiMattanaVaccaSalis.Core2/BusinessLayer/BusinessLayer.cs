@@ -43,5 +43,15 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return heroRepo.Delete(eroe);
         }
+
+        public List<Weapon> GetWeaponsByCategory(CatEnum cat)
+        {
+            return weaponRepo.Fetch(w => w.IdCategory == (int)cat).ToList();
+        }
+
+        public List<Weapon> GetAllWeapons()
+        {
+            return weaponRepo.Fetch().ToList();
+        }
     }
 }
