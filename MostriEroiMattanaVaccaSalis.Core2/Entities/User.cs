@@ -13,10 +13,10 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         public string Password { get; set; }
         public bool IsAdmin { get; set; } = false;
 
-        public User(string NickName, string password,int id)
+        public User(string nickname, string password,int id)
         {
 
-            NickName = NickName;
+            NickName = nickname;
             Password = password;
             IdUser = id;    
         }

@@ -86,5 +86,10 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         {
             return userRepo.FetchByHeroes(heroes);
         }
+
+        public bool isUserAdmin(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

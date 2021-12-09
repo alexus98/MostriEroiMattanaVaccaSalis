@@ -45,7 +45,9 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
 
         public int GetAvailableId()
         {
-            return MemoryStorage.Users.
+            int count = MemoryStorage.Users.Count;
+            int id = MemoryStorage.Users[count - 1].IdUser;
+            return id + 1;
         }
 
         public List<User> FetchByHeroes(List<Hero> heroes)

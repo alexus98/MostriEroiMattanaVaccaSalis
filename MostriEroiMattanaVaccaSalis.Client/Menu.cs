@@ -122,6 +122,68 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         #region Metodi Menu
 
+        private static void SignIn()
+        {
+            string username;
+            string password;
+            bool checkOK;
+            do
+            {
+                Console.WriteLine("Inserire Username");
+                username = Console.ReadLine();
+                Console.WriteLine("Inserire Password");
+                password = Console.ReadLine();
+
+                checkOK = bl.CheckCredentials(username, password);
+                if (!checkOK)
+                {
+                    Console.WriteLine("Credenziali errate! ");
+                }
+
+            }
+            while (!checkOK);
+
+            if (bl.isUserAdmin(username))
+            {
+                AdminMenu();
+            }
+            else UserMenu();
+
+
+
+        }
+
+
+
+        private static void SignUp()
+        {
+            bool check = false;
+            string username;
+            do
+            {
+                Console.WriteLine("Inserire Nickname\n");
+                username = Console.ReadLine();
+                check = bl.CheckNickName(username);
+                if (!check)
+                {
+                    Console.WriteLine("Nickname già in uso");
+                }
+            }
+            while (!check);
+
+            Console.WriteLine("Inserire password");
+            string password = Console.ReadLine();
+
+            int id = bl.GetAvailableId();
+
+            User user = new User(username, password, id);
+            if (!bl.AddUser(user))
+            {
+                Console.WriteLine("Qualcosa è andato storto!");
+            }
+
+        }
+
         private static void MostraClassifica()
         {
             Console.WriteLine("---- CLASSIFICA ----");
