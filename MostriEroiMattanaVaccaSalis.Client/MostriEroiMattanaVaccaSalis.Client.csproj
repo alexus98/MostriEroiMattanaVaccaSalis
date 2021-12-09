@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MostriEroiMattanaVaccaSalis.Core2\MostriEroiMattanaVaccaSalis.Core.csproj" />
+    <ProjectReference Include="..\MostriEroiMattanaVaccaSalis.Mock\MostriEroiMattanaVaccaSalis.Mock.csproj" />
   </ItemGroup>
 
 </Project>
