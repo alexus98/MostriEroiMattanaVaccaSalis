@@ -23,5 +23,10 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             
             throw new NotImplementedException();
         }
+    
+        public IEnumerable<User> Fetch(Func<User, bool> lambda = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

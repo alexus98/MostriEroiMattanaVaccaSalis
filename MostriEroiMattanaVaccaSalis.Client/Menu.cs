@@ -1,4 +1,5 @@
 ﻿using MostriEroiMattanaVaccaSalis.Core.BusinessLayer;
+using MostriEroiMattanaVaccaSalis.Core.Entities;
 using MostriEroiMattanaVaccaSalis.Mock.Repositories;
 using System;
 using System.Collections.Generic;
@@ -117,12 +118,67 @@ namespace MostriEroiMattanaVaccaSalis.Client
         #region Metodi Menu
         private static void EliminaEroe()
         {
-            throw new NotImplementedException();
+            
+                List<Hero> eroi = bl.GetAllHeroes();
+                if (eroi.Count != 0)
+                {
+                    
+                    foreach (var e in eroi)
+                    {
+                    Console.WriteLine(e.ToString()); ;
+                    
+                    }
+                int id;
+                    
+                   Console.Write("Quale eroe vuoi eliminare? Inserisci l'Id: ");
+                while (!(int.TryParse(Console.ReadLine(), out id) && id > 0))
+                {
+                    Console.WriteLine("Valore errato. Riprova:");
+                }
+                Hero eroe = bl.GetHeroById(id);
+                bool esito = bl.DeleteHero(eroe);
+                if (esito)
+                {
+                    Console.WriteLine("Eroe eliminato correttamente!");
+                }
+                else
+                {
+                    Console.WriteLine("Ops, qualcosa è andato storto.");
+                }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Non hai nessun eroe nell'account. Creane uno.");
+                }
+            
+            
         }
         private static void CreaEroe()
         {
-            throw new NotImplementedException();
+            string heroName;
+            bool flagNome = false;
+            Console.WriteLine("Inserisci il nome dell'eroe");
+            do
+            {
+
+            } while (flagNome == false);
+            heroName = Console.ReadLine();
+            Console.WriteLine("Inserisci la categoria dell'eroe");
+            Console.WriteLine("Inserisci l'arma dell'eroe");
+            Console.WriteLine("Eroe inserito");
         }
+
+
+
+
+        private static void isNameUsed(string heroName)
+        {
+            bl.GetHeroByName(heroName);
+        }
+
+
+
         #endregion
 
         #region Metodi MainMenu

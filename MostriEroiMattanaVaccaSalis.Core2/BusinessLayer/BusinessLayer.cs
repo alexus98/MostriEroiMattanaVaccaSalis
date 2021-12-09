@@ -20,8 +20,28 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             userRepo = user;
             heroRepo = hero;
             monsterRepo = monster;
-           weaponRepo = weapon;
+            weaponRepo = weapon;
+        }
 
+
+        public Hero GetHeroByName(string heroName)
+        {
+            return heroRepo.Fetch(h => h.Name == heroName).ToList().FirstOrDefault();
+        }
+
+        public List<Hero> GetAllHeroes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Hero GetHeroById(int id)
+        {
+            return heroRepo.Fetch(h => h.Id == id).ToList().FirstOrDefault();
+        }
+
+        public bool DeleteHero(Hero eroe)
+        {
+            throw new NotImplementedException();
         }
 
         
