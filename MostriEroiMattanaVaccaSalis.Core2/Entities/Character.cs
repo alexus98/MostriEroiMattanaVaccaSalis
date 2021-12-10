@@ -43,6 +43,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         }
     }
 
+    public void Attack( Character c)
+    {
+        
+    }
+
     public enum CatEnum 
     {
         Warrior=1,

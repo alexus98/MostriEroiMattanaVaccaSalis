@@ -162,6 +162,35 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static Hero Gioca(User u, Hero? hero)
         {
            Monster mostro = bl.GetRandomMonster(hero.Level);
+            Turno t = Turno.Player;
+            do
+            {
+                switch (t)
+                {
+                    case Turno.Player:
+                        //scelta attacca o fuggi
+                        
+                        //cose
+                        t = Turno.Monster;
+                        break;
+
+                    case Turno.Monster:
+                        //attacca
+                        t = Turno.Player;
+                        break;
+                }
+
+
+            } while ();
+
+             
+        }
+
+        public enum Turno
+        {
+            Player = 1,
+            Monster = 2
+            
         }
 
         private static Hero SceltaHero(User u)
