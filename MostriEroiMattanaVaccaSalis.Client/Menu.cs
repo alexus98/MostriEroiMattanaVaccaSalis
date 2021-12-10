@@ -162,6 +162,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static Hero Gioca(User u, Hero? hero)
         {
            Monster mostro = bl.GetRandomMonster(hero.Level);
+
         }
 
         private static Hero SceltaHero(User u)
