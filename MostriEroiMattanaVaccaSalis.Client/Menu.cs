@@ -65,7 +65,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         //Gioca();
                         break;
                     case '2':
-                        CreaEroe();
+                        CreaEroe(u);
                         break;
                     case '3':
                         EliminaEroe(u);
@@ -102,7 +102,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        Gioca(u);
+                        //Gioca(u);
                         break;
                     case '2':
                         CreaEroe(u);
@@ -138,7 +138,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     hero = CreaEroe(u);
                 }
 
-                Hero chosenHero = Gioca(u, hero);
+                //Hero chosenHero = Gioca(u, hero);
                 Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare");
                 char risp = Console.ReadKey().KeyChar;
                 if (risp == 'S')
@@ -159,11 +159,10 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (exit);
         }
 
-        private static Hero Gioca(User u, Hero? hero)
+        /*private static Hero Gioca(User u, Hero? hero)
         {
            Monster mostro = bl.GetRandomMonster(hero.Level);
-
-        }
+        }*/
 
         private static Hero SceltaHero(User u)
         {
@@ -302,7 +301,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             }
         }
 
-        private static void CreaEroe(User u)
+        private static Hero CreaEroe(User u)
         {
             string heroName;
             bool isNameUsed, flagWeapon, success;
@@ -310,6 +309,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             CatEnum cat;
             int idWeapon;
             Hero hero = new Hero();
+            Hero newHero;
             Console.WriteLine("Inserisci il nome dell'eroe");
             do
             {
@@ -356,9 +356,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
             
             hero.IdWeapon = idWeapon;
             hero.IdUser = u.IdUser;
-            success = bl.InsertHero(hero);
+            
+            newHero = bl.InsertHero(hero);
             
             Console.WriteLine("Eroe inserito");
+            return newHero;
         }
 
         private static void CreaMostro()

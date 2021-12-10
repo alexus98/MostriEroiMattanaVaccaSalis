@@ -97,7 +97,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return userRepo.FetchByHeroes(heroes);
         }
 
-        public bool InsertHero(Hero hero)
+        public Hero InsertHero(Hero hero)
         {
             return heroRepo.Add(hero);
         }

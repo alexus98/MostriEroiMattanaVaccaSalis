@@ -28,11 +28,11 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             return MemoryStorage.Heroes.OrderByDescending(e => e.Level).ThenByDescending(e => e.Exp).Take(10).ToList();
         }
 
-        public bool Add(Hero hero)
+        public Hero Add(Hero hero)
         {
             hero.Id = MemoryStorage.Heroes.Last().Id + 1;
             MemoryStorage.Heroes.Add(hero);
-            return true;
+            return hero;
         }
     }
 }
