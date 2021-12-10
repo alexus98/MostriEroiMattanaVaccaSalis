@@ -113,5 +113,10 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return u;
             
         }
+
+        public Monster GetRandomMonster(int level)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
