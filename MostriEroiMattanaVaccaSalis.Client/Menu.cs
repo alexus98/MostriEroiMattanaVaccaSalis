@@ -366,9 +366,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static Hero CreaEroe(User u)
         {
             string heroName;
-            bool isNameUsed, flagWeapon, success;
+            bool isNameUsed, flagWeapon;
             char choice;
-            CatEnum cat;
             int idWeapon;
             Hero hero = new Hero();
             Hero newHero;
@@ -503,8 +502,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         private static bool IsNameUsed(string heroName)
         {
-            bool isNameUsed = false;
-
             if (bl.GetHeroByName(heroName) == null)
                 return false;
             else
