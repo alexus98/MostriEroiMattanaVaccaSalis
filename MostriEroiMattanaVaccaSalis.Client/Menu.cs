@@ -62,7 +62,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        //Gioca();
+                        Gioca(u);
                         break;
                     case '2':
                         CreaEroe(u);
@@ -102,7 +102,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        //Gioca(u);
+                        Gioca(u);
                         break;
                     case '2':
                         CreaEroe(u);
@@ -127,10 +127,10 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             Hero hero = new Hero();
             bool exit;
-            bool stessoeroe = false;
+            bool sceltaeroe = true;
             do
             {
-                if(stessoeroe)
+                if(sceltaeroe)
                     hero = SceltaHero(u);
 
                 if (hero == null)
@@ -138,51 +138,84 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     hero = CreaEroe(u);
                 }
 
-                //Hero chosenHero = Gioca(u, hero);
-                Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare");
+                Partita(u, hero);
+
+                Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare o qualsiasi tasto per uscire");
                 char risp = Console.ReadKey().KeyChar;
                 if (risp == 'S')
                 {
                     exit = true;
-                    Console.WriteLine("Vuoi continuare con lo stesso eroe? Schiaccia [S] per continuare");
+                    Console.WriteLine("Vuoi continuare con lo stesso eroe? Schiaccia [S] per continuare o qualsiasi tasto per scegliere un nuovo eroe");
                     char risp2 = Console.ReadKey().KeyChar;
 
                     if (risp2 != 'S')
                     {
-                        stessoeroe = true;
+                        sceltaeroe = true;
                     }
                     else
-                        stessoeroe = false;
+                        sceltaeroe = false;
                 }
                 else
                     exit = false;
             } while (exit);
         }
 
-        private static Hero Gioca(User u, Hero? hero)
+        private static void Partita(User u, Hero? hero)
         {
-           Monster mostro = bl.GetRandomMonster(hero.Level);
+            Monster monster = bl.GetRandomMonster(hero.Level);
+            Weapon heroWeapon = bl.GetWeaponsById(hero.IdWeapon);
+            Weapon monsterWeapon = bl.GetWeaponsById(monster.IdWeapon);
+
             Turno t = Turno.Player;
+            char choice;
+            bool escape = false;
+            bool win = false;
+            
             do
             {
                 switch (t)
                 {
                     case Turno.Player:
-                        //scelta attacca o fuggi
-                        
-                        //cose
+                        do
+                        {
+                            Console.WriteLine("Premi 1 per attaccare\n" +
+                                "Premi 2 per fuggire");
+                            choice = Console.ReadKey().KeyChar;
+
+                            if (choice == '1')
+                                hero.Attack(monster, heroWeapon);
+                            else if (choice == '2')
+                                escape = hero.Escape();
+                            
+                        } while (choice != '1' && choice != '2');
+                        if (monster.LifePoints <= 0)
+                            win = true;
                         t = Turno.Monster;
                         break;
 
                     case Turno.Monster:
-                        //attacca
+                        Console.WriteLine("Turno mostro");
+                        monster.Attack(hero, monsterWeapon);
                         t = Turno.Player;
                         break;
                 }
 
 
-            } while ();
+            } while (hero.LifePoints > 0 && monster.LifePoints > 0 && escape == false);
 
+            if (escape)
+                hero.Exp -= monster.Level * 5;
+            else if (win)
+                hero.Exp += monster.Level * 10;
+
+            hero.SetLevelByExp();
+            hero.SetLifePointsByLevel();
+
+            if(hero.Level >= 3)
+                u.IsAdmin = true;
+
+            //update eroi
+            //update user
              
         }
 

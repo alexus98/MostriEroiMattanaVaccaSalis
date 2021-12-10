@@ -41,11 +41,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
                     break;
             }
         }
-    }
 
-    public void Attack( Character c)
-    {
-        
+        public void Attack(Character enemy, Weapon w)
+        {
+            enemy.LifePoints -= w.Damage;
+        }
     }
 
     public enum CatEnum 
