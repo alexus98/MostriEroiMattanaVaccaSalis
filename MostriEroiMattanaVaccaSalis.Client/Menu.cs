@@ -102,7 +102,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 switch (choice)
                 {
                     case '1':
-                        //Gioca();
+                        Gioca(u);
                         break;
                     case '2':
                         CreaEroe();
@@ -120,7 +120,81 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (choice != 'Q');
         }
 
+
+
         #region Metodi Menu
+        private static void Gioca(User u)
+        {
+            Hero hero = new Hero();
+            bool exit;
+            do
+            {
+                if (hero != null)
+                {
+                    if (hero.Id == 0)
+                    {
+
+                        hero = SceltaHero(u);
+                        if (hero == null)
+                        {
+                            hero = CreaEroe(u);
+                        }
+                    }
+                }
+
+                Hero chosenHero = Gioca(u, hero);
+                Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare");
+                char risp = Console.ReadKey().KeyChar;
+                if (risp == 'S')
+                {
+                    exit = true;
+                    Console.WriteLine("Vuoi continuare con lo stesso eroe? Schiaccia [S] per continuare");
+                    char risp2 = Console.ReadKey().KeyChar;
+
+                    if (risp2 == 'S')
+                    {
+                        hero = chosenHero;
+                    }
+                    else
+                    {
+                        hero = new Hero();
+                    }
+                }
+                else
+                    exit = false;
+            } while (exit);
+        }
+
+        private static Hero Gioca(User u, Hero? hero)
+        {
+           Monster mostro = bl.GetRandomMonster(hero.Level);
+        }
+
+        private static Hero SceltaHero(User u)
+        {
+            List<Hero> heroes = bl.GetAllHeroes(u);
+            if (heroes.Count != 0)
+            {
+                foreach (var e in heroes)
+                {
+                    Console.WriteLine(e.ToString());  
+                }
+                int id;
+                Console.Write("Quale eroe vuoi scegliere? Inserisci l'Id: ");
+                while (!(int.TryParse(Console.ReadLine(), out id) && id > 0))
+                {
+                    Console.WriteLine("Valore errato. Riprova:");
+                }
+
+                Hero eroe = bl.GetHeroById(id);
+                return eroe;
+            }
+            else
+            {
+                return null;
+                Console.WriteLine("Non hai nessun eroe nell'account. Creane uno.");   
+            }
+        }
 
         private static void SignIn()
         {
@@ -199,7 +273,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
         }
         private static void EliminaEroe()
         {
-            List<Hero> eroi = bl.GetAllHeroes();
+            List<Hero> eroi = bl.GetAllHeroes(u);
             if (eroi.Count != 0)
             {
                 foreach (var e in eroi)

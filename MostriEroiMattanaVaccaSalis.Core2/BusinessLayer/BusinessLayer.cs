@@ -29,9 +29,9 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return heroRepo.Fetch(h => h.Name == heroName).ToList().FirstOrDefault();
         }
 
-        public List<Hero> GetAllHeroes()
+        public List<Hero> GetAllHeroes(User u)
         {
-            return heroRepo.Fetch().ToList();
+            return heroRepo.Fetch().Where(e => e.IdUser == u.IdUser).ToList();
         }
 
         public Hero GetHeroById(int id)
@@ -105,6 +105,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
                 else
                     return false;
             return false;
+        }
+
+        public Monster GetRandomMonster(int level)
+        {
+            throw new NotImplementedException();
         }
     }
 }
