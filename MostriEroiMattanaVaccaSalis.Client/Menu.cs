@@ -211,6 +211,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
             if (escape)
             {
                 hero.Exp -= monster.Level * 5;
+                if (hero.Exp < 0)
+                    hero.Exp = 0;
                 Console.WriteLine("Fiu, l'hai scampata bella!");
             }
             else if (win)
@@ -234,7 +236,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             Player = 1,
             Monster = 2
-            
         }
 
         private static Hero SceltaHero(User u)
