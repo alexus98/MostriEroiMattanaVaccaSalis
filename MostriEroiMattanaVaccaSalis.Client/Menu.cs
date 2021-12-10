@@ -71,7 +71,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         EliminaEroe();
                         break;
                     case '4':
-                        //CreaMostro();
+                        CreaMostro();
                         break;
                     case '5':
                         MostraClassifica();
@@ -290,6 +290,79 @@ namespace MostriEroiMattanaVaccaSalis.Client
             Console.WriteLine("Eroe inserito");
         }
 
+        private static void CreaMostro()
+        {
+            string monsterName;
+            bool isNameUsed, flagWeapon, success;
+            char choice;
+            CatEnum cat;
+            int idWeapon, level;
+            Monster monster = new Monster();
+            Console.WriteLine("Inserisci il nome del mostro");
+            do
+            {
+                monsterName = Console.ReadLine();
+                isNameUsed = IsMonsterNameUsed(monsterName);
+                if (isNameUsed == true)
+                    Console.WriteLine("E' già presente un mostro con questo nome");
+            } while (isNameUsed == true);
+            monster.Name = monsterName;
+
+
+            Console.WriteLine("Inserisci la categoria del mostro");
+            do
+            {
+                Console.WriteLine("1 per scegliere un Cultista\n" +
+                    "2 per scegliere un Orco\n" +
+                    "3 per scegliere un Signore del male");
+                choice = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+
+                switch (choice)
+                {
+                    case '1':
+                        monster.Category = CatEnum.Cultist;
+                        break;
+                    case '2':
+                        monster.Category = CatEnum.Orc;
+                        break;
+                    case '3':
+                        monster.Category = CatEnum.Saruman;
+                        break;
+                    default:
+                        Console.WriteLine("Scelta non valida");
+                        break;
+                }
+            } while (choice != '1' && choice != '2' && choice != '3');
+
+            Console.WriteLine("Inserisci l'arma del mostro");
+
+            do
+            {
+                PrintWeaponsByCategory(monster.Category);
+                idWeapon = int.Parse(Console.ReadLine());
+                flagWeapon = IsWeaponsForThisCategory(idWeapon, (int)monster.Category);
+                if (flagWeapon == false)
+                    Console.WriteLine("Inserisci un id dell'arma valido");
+            } while (flagWeapon == false);
+
+            Console.WriteLine("Inserisci il livello del mostro");
+            do
+            {
+                level = int.Parse(Console.ReadLine());  
+                if (level < 1 || level > 5)
+                    Console.WriteLine("Inserisci un livello da 1 a 5");
+                else
+                    monster.Level = level;
+            } while (level < 1 || level > 5);
+
+            monster.SetLifePointsByLevel();
+
+            monster.IdWeapon = idWeapon;
+            success = bl.InsertMonster(monster);
+
+            Console.WriteLine("Mostro inserito");
+        }
 
 
 
@@ -298,6 +371,16 @@ namespace MostriEroiMattanaVaccaSalis.Client
             bool isNameUsed = false;
 
             if (bl.GetHeroByName(heroName) == null)
+                return false;
+            else
+                return true;
+        }
+
+        private static bool IsMonsterNameUsed(string monsterName)
+        {
+            bool isNameUsed = false;
+
+            if (bl.GetMonsterByName(monsterName) == null)
                 return false;
             else
                 return true;

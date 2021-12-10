@@ -9,5 +9,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
 {
     public interface IMonsterRepo:IRepository<Monster>
     {
+        public bool Add(Monster monster);
     }
 }

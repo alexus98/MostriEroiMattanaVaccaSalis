@@ -19,6 +19,28 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         {
             return $"{Id} - {Name} - Livello: {Level} Cat:{Category} \nHP:{LifePoints} \nWeapon: {IdWeapon}\n";
         }
+
+        public void SetLifePointsByLevel()
+        {
+            switch (Level)
+            {
+                case 1:
+                    LifePoints = 20;
+                    break;
+                case 2:
+                    LifePoints = 40;
+                    break;
+                case 3:
+                    LifePoints = 60;
+                    break;
+                case 4:
+                    LifePoints = 80;
+                    break;
+                case 5:
+                    LifePoints = 100;
+                    break;
+            }
+        }
     }
 
     public enum CatEnum 
