@@ -214,9 +214,9 @@ namespace MostriEroiMattanaVaccaSalis.Client
             if(hero.Level >= 3)
                 u.IsAdmin = true;
 
-            //update eroi
+            bl.UpdateHero(hero);
             //update user
-             
+
         }
 
         public enum Turno
@@ -532,6 +532,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static bool IsWeaponsForThisCategory(int id, int cat)
         {
             return bl.GetWeaponsById(id).IdCategory == cat;
+        }
+
+        private static void UpdateHero(Hero h)
+        {
+            bl.UpdateHero(h);
         }
         #endregion
         
