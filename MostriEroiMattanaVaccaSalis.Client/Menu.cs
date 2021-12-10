@@ -224,7 +224,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             if(hero.Level >= 3)
                 u.IsAdmin = true;
-
+            Console.WriteLine($"\n{hero.Name} - Level: {hero.Level} - Exp: {hero.Exp}");
             UpdateHero(hero);
             UpdateUser(u);
              
