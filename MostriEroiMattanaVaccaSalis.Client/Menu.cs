@@ -129,18 +129,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
             bool exit;
             do
             {
-                if (hero != null)
-                {
-                    if (hero.Id == 0)
-                    {
-
-                        hero = SceltaHero(u);
-                        if (hero == null)
-                        {
-                            hero = CreaEroe(u);
-                        }
-                    }
-                }
+               hero = SceltaHero(u);
+               if (hero == null)
+               {
+                  hero = CreaEroe(u);
+               }
+                
 
                 Hero chosenHero = Gioca(u, hero);
                 Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare");
