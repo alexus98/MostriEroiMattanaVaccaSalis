@@ -216,6 +216,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             //update eroi
             //update user
+
+            void UpdateUser()
+            {
+                bl.UpdateUser(u);
+            }
              
         }
 

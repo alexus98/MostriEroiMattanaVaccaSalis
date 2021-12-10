@@ -14,5 +14,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
         bool AddUser(User user);
         int GetAvailableId();
         List<User> FetchByHeroes(List<Hero> heroes);
+        void UpdateUser(User u);
     }
 }

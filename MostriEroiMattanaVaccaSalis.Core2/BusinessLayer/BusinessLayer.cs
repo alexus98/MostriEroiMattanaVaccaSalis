@@ -134,5 +134,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             Monster monster = monsters[i];
             return monster;
         }
+
+        public void UpdateUser(User u)
+        {
+            userRepo.UpdateUser(u);
+            
+        }
     }
 }

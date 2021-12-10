@@ -61,5 +61,14 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             }
             return utentiEroi;
         }
+
+        public void UpdateUser(User u)
+        {
+          
+           User user = MemoryStorage.Users.Where(user => user.IdUser == u.IdUser).FirstOrDefault();
+            if (user != null)
+                user = u;
+           
+        }
     }
 }
