@@ -44,7 +44,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         
 
-        internal static void AdminMenu()
+        internal static void AdminMenu(User u)
         {
             char choice;
             do
@@ -68,7 +68,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         CreaEroe();
                         break;
                     case '3':
-                        EliminaEroe();
+                        EliminaEroe(u);
                         break;
                     case '4':
                         //CreaMostro();
@@ -86,7 +86,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (choice != 'Q');
         }
 
-        internal static void UserMenu()
+        internal static void UserMenu(User u)
         {
             char choice;
             do
@@ -108,7 +108,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         CreaEroe();
                         break;
                     case '3':
-                        EliminaEroe();
+                        EliminaEroe(u);
                         break;
                     case 'Q':
                         Console.WriteLine("Alla prossima partita");
@@ -217,12 +217,13 @@ namespace MostriEroiMattanaVaccaSalis.Client
             }
             while (!checkOK);
 
+            User user= new User();
             if (bl.isUserAdmin(username))
             {
-                User user = bl.GetUser(username);
-                AdminMenu();
+                user = bl.GetUser(username);
+                AdminMenu(user);
             }
-            else UserMenu();
+            else UserMenu(user);
 
 
 
@@ -272,7 +273,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 i++;
             }
         }
-        private static void EliminaEroe()
+        private static void EliminaEroe(User u)
         {
             List<Hero> eroi = bl.GetAllHeroes(u);
             if (eroi.Count != 0)
