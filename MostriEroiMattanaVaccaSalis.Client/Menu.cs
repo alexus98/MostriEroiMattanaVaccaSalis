@@ -105,7 +105,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         Gioca(u);
                         break;
                     case '2':
-                        CreaEroe();
+                        CreaEroe(u);
                         break;
                     case '3':
                         EliminaEroe(u);
