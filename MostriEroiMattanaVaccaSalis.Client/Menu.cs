@@ -199,7 +199,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         break;
 
                     case Turno.Monster:
-                        Console.WriteLine($"E' il turno di {monster.Name}");
+                        Console.WriteLine($"\nE' il turno di {monster.Name}");
                         monster.Attack(hero, monsterWeapon);
                         t = Turno.Player;
                         break;
@@ -302,12 +302,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
             string username;
             do
             {
-                Console.WriteLine("Inserire Nickname\n");
+                Console.WriteLine("\nInserire Username\n");
                 username = Console.ReadLine();
                 check = bl.CheckNickName(username);
                 if (check)
                 {
-                    Console.WriteLine("Nickname già in uso");
+                    Console.WriteLine("Username già in uso");
                 }
             }
             while (check);
