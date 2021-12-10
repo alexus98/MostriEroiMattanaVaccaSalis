@@ -52,6 +52,7 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             new Weapon{ IdWeapon = 22, WeaponName = "Fulmine celeste", Damage = 15, IdCategory = 5},
             new Weapon{ IdWeapon = 23, WeaponName = "Tempesta", Damage = 8, IdCategory = 5},
             new Weapon{ IdWeapon = 24, WeaponName = "Tempesta oscura", Damage = 15, IdCategory = 5},
+            new Weapon{ IdWeapon = 25, WeaponName = "Chiamami i carabinieri veloce", Damage = 20, IdCategory = 5},
         };
         public static List<Monster> Monster = new List<Monster>()
         {
@@ -59,7 +60,8 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             new Monster{Id = 2, Name = "Mister Mxyzptlk", Level = 1, LifePoints = 20,  Category= CatEnum.Orc, IdWeapon=15},
             new Monster{Id = 3, Name = "Bane", Level = 3, LifePoints = 60,  Category= CatEnum.Cultist, IdWeapon=14},
             new Monster{Id = 4, Name = "Nenno molto cattivo", Level = 3, LifePoints = 60, Category= CatEnum.Orc, IdWeapon=18},
-            new Monster{Id = 5, Name = "Boss Finale", Level = 5, LifePoints = 100, Category= CatEnum.Saruman, IdWeapon=24}
+            new Monster{Id = 5, Name = "Boss Finale", Level = 5, LifePoints = 100, Category= CatEnum.Saruman, IdWeapon=24},
+            new Monster{Id = 5, Name = "Mestro Pandolfi", Level = 5, LifePoints = 200, Category= CatEnum.Saruman, IdWeapon=25}
         };
 
 
