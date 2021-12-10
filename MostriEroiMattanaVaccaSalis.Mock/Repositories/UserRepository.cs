@@ -15,8 +15,8 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
         public bool CheckCredentials(string username, string password)
         {
             List<User> users = MemoryStorage.Users;
-            users.Where(u => u.NickName == username && u.Password == password).ToList();
-            if (users != null)
+            User user = users.Where(u => u.NickName == username && u.Password == password).FirstOrDefault();
+            if (user != null)
             {
                 return true;
             }
@@ -25,8 +25,9 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
 
         public IEnumerable<User> Fetch(Func<User, bool> lambda = null)
         {
-
-            throw new NotImplementedException();
+            if (lambda != null)
+                return MemoryStorage.Users.Where(lambda);
+            return MemoryStorage.Users;
         }
 
 

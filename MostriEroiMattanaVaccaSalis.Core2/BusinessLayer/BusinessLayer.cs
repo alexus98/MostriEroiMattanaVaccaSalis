@@ -31,7 +31,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public List<Hero> GetAllHeroes()
         {
-            throw new NotImplementedException();
+            return heroRepo.Fetch().ToList();
         }
 
         public Hero GetHeroById(int id)
@@ -55,7 +55,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         public bool CheckNickName(string? username)
         {
             return userRepo.CheckNickName(username);
-            throw new NotImplementedException();
         }
 
         public int GetAvailableId()
@@ -99,7 +98,13 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public bool isUserAdmin(string username)
         {
-            throw new NotImplementedException();
+            User u = userRepo.Fetch(u => u.NickName == username).FirstOrDefault();
+            if (u != null)
+                if(u.IsAdmin)
+                    return true;
+                else
+                    return false;
+            return false;
         }
     }
 }
