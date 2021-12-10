@@ -45,6 +45,7 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         public void Attack(Character enemy, Weapon w)
         {
             enemy.LifePoints -= w.Damage;
+            Console.WriteLine($"Inflitti {w.Damage} Punti Danno!");
         }
     }
 

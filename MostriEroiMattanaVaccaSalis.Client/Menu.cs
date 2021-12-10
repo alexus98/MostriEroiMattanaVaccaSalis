@@ -16,7 +16,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {  
             char choice;
             do {
-                Console.WriteLine("Digita 1 per accedere, 2 per registarti, Q per uscire");
+                Console.Write("Digita 1 per accedere, 2 per registarti, Q per uscire: ");
                 
                 choice = Console.ReadKey().KeyChar;
 
@@ -49,7 +49,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             char choice;
             do
             {
-                Console.WriteLine("Scegli 1 per Giocare\n" +
+                Console.WriteLine("\nScegli 1 per Giocare\n" +
                 "Scegli 2 per Creare un nuovo eroe\n" +
                 "Scegli 3 per Eliminare un eroe\n" +
                 "Scegli 4 per Creare un nuovo mostro\n" +
@@ -91,7 +91,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             char choice;
             do
             {
-                Console.WriteLine("Scegli 1 per Giocare\n" +
+                Console.WriteLine("\nScegli 1 per Giocare\n" +
                 "Scegli 2 per Creare un nuovo eroe\n" +
                 "Scegli 3 per Eliminare un eroe\n" +
                 "Scegli Q per Uscire");
@@ -140,12 +140,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
                 Partita(u, hero);
 
-                Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare o qualsiasi tasto per uscire");
+                Console.WriteLine("\nVuoi continuare a giocare? Schiaccia [S] per continuare o qualsiasi tasto per uscire");
                 char risp = Console.ReadKey().KeyChar;
                 if (risp == 'S')
                 {
                     exit = true;
-                    Console.WriteLine("Vuoi continuare con lo stesso eroe? Schiaccia [S] per continuare o qualsiasi tasto per scegliere un nuovo eroe");
+                    Console.WriteLine("\nVuoi continuare con lo stesso eroe? Schiaccia [S] per continuare o qualsiasi tasto per scegliere un nuovo eroe");
                     char risp2 = Console.ReadKey().KeyChar;
 
                     if (risp2 != 'S')
@@ -162,6 +162,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         private static void Partita(User u, Hero? hero)
         {
+
             Monster monster = bl.GetRandomMonster(hero.Level);
             Weapon heroWeapon = bl.GetWeaponsById(hero.IdWeapon);
             Weapon monsterWeapon = bl.GetWeaponsById(monster.IdWeapon);
@@ -170,7 +171,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
             char choice;
             bool escape = false;
             bool win = false;
-            
+            Console.WriteLine("----LET'S BATTLE BEGIN!----");
+            Console.WriteLine($"{hero.Name} VS {monster.Name}");
             do
             {
                 switch (t)
@@ -178,12 +180,15 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     case Turno.Player:
                         do
                         {
-                            Console.WriteLine("Premi 1 per attaccare\n" +
-                                "Premi 2 per fuggire");
+                            Console.Write("\nPremi 1 per attaccare\n" +
+                                "Premi 2 per fuggire: ");
                             choice = Console.ReadKey().KeyChar;
 
                             if (choice == '1')
+                            {
+                                Console.WriteLine($"\nE' il turno di {hero.Name}");
                                 hero.Attack(monster, heroWeapon);
+                            }
                             else if (choice == '2')
                                 escape = hero.Escape();
                             
@@ -194,7 +199,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                         break;
 
                     case Turno.Monster:
-                        Console.WriteLine("Turno mostro");
+                        Console.WriteLine($"E' il turno di {monster.Name}");
                         monster.Attack(hero, monsterWeapon);
                         t = Turno.Player;
                         break;
@@ -204,9 +209,15 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (hero.LifePoints > 0 && monster.LifePoints > 0 && escape == false);
 
             if (escape)
+            {
                 hero.Exp -= monster.Level * 5;
+                Console.WriteLine("Fiu, l'hai scampata bella!");
+            }
             else if (win)
+            {
                 hero.Exp += monster.Level * 10;
+                Console.WriteLine($"YOU WIN!! Hai guadagnato {hero.Exp += monster.Level * 10} Exp");
+            }
 
             hero.SetLevelByExp();
             hero.SetLifePointsByLevel();
@@ -236,7 +247,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     Console.WriteLine(e.ToString());  
                 }
                 int id;
-                Console.Write("Quale eroe vuoi scegliere? Inserisci l'Id: ");
+                Console.Write("\nQuale eroe vuoi scegliere? Inserisci l'Id: ");
                 while (!(int.TryParse(Console.ReadLine(), out id) && id > 0))
                 {
                     Console.WriteLine("Valore errato. Riprova:");
@@ -259,7 +270,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             bool checkOK;
             do
             {
-                Console.WriteLine("Inserire Username");
+                Console.WriteLine("\nInserire Username");
                 username = Console.ReadLine();
                 Console.WriteLine("Inserire Password");
                 password = Console.ReadLine();
@@ -284,8 +295,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
 
         }
-
-
 
         private static void SignUp()
         {
@@ -329,6 +338,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
                 i++;
             }
         }
+
         private static void EliminaEroe(User u)
         {
             List<Hero> eroi = bl.GetAllHeroes(u);
@@ -497,8 +507,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             Console.WriteLine("Mostro inserito");
         }
-
-
 
         private static bool IsNameUsed(string heroName)
         {

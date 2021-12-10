@@ -27,24 +27,53 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         }
 
         /*Livello 1 da 0 a 29
-Livello 2 da 30 a 59
-Livello 3 da 60 a 89
-Livello 4 da 90 a 119
-Livello 5 da 120
-*/
+        Livello 2 da 30 a 59
+        Livello 3 da 60 a 89
+        Livello 4 da 90 a 119
+        Livello 5 da 120
+        */
 
         public void SetLevelByExp()
         {
-            if(Exp >= 0 && Exp <= 29)
-                Level = 1;
-            if (Exp >= 30 && Exp <= 59)
-                Level = 2;
-            if (Exp >= 60 && Exp <= 89)
-                Level = 3;
-            if (Exp >= 90 && Exp <= 119)
-                Level = 4;
-            if (Exp >= 120)
-                Level = 5;
+            switch (Level)
+            {
+                case 1:
+                    if (Exp > 29)
+                    {
+                        Level++;
+                        Exp = 0;
+                        LifePoints = 40;
+
+                    }
+                    break;
+                case 2:
+                    if (Exp > 59)
+                    {
+                        Level++;
+                        Exp = 0;
+                        LifePoints = 60;
+                    }
+                    break;
+                case 3:
+                    if (Exp > 89)
+                    {
+                        Level++;
+                        Exp = 0;
+                        LifePoints = 80;
+
+                    }
+                    break;
+                case 4:
+                    if (Exp > 119)
+                    {
+                        Level++;
+                        Exp = 0;
+                        LifePoints = 100;
+                    }
+                    break;
+                case 5:
+                    break;
+            }
         }
     }
 }
