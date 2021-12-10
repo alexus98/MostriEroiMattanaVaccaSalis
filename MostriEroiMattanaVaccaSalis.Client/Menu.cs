@@ -159,10 +159,10 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (exit);
         }
 
-        /*private static Hero Gioca(User u, Hero? hero)
+        private static Hero Gioca(User u, Hero? hero)
         {
            Monster mostro = bl.GetRandomMonster(hero.Level);
-        }*/
+        }
 
         private static Hero SceltaHero(User u)
         {
