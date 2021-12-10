@@ -12,5 +12,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.Interfaces
         bool Delete(Hero eroe);
         List<Hero> FetchTop10();
         Hero Add(Hero hero);
+        void Update(Hero hero);
     }
 }

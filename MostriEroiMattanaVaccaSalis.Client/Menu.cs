@@ -214,13 +214,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
             if(hero.Level >= 3)
                 u.IsAdmin = true;
 
-            //update eroi
+            bl.UpdateHero(hero);
             //update user
-
-            void UpdateUser()
-            {
-                bl.UpdateUser(u);
-            }
              
         }
 
@@ -371,9 +366,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static Hero CreaEroe(User u)
         {
             string heroName;
-            bool isNameUsed, flagWeapon, success;
+            bool isNameUsed, flagWeapon;
             char choice;
-            CatEnum cat;
             int idWeapon;
             Hero hero = new Hero();
             Hero newHero;
@@ -508,8 +502,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
         private static bool IsNameUsed(string heroName)
         {
-            bool isNameUsed = false;
-
             if (bl.GetHeroByName(heroName) == null)
                 return false;
             else
@@ -537,6 +529,11 @@ namespace MostriEroiMattanaVaccaSalis.Client
         private static bool IsWeaponsForThisCategory(int id, int cat)
         {
             return bl.GetWeaponsById(id).IdCategory == cat;
+        }
+
+        private static void UpdateHero(Hero h)
+        {
+            bl.UpdateHero(h);
         }
         #endregion
         

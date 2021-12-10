@@ -140,5 +140,10 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             userRepo.UpdateUser(u);
             
         }
+
+        public void UpdateHero(Hero h)
+        {
+            heroRepo.Update(h);
+        }
     }
 }

@@ -34,5 +34,12 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
             MemoryStorage.Heroes.Add(hero);
             return hero;
         }
+
+        public void Update(Hero hero)
+        {
+            Hero heroMock = Fetch(h => h.Id == hero.Id).ToList().FirstOrDefault();
+            if (heroMock != null)
+                heroMock = hero;
+        }
     }
 }
