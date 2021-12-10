@@ -1,0 +1,46 @@
+menu 1: accedi
+	registrati
+	esci
+
+accedi-> verifica credenziali -> admin true -> menu 2: 
+				 admin false -> menu 3
+
+registrati -> verifica esistenza nickname uguale -> new user con admin false -> messaggio -> menu 2
+
+esci -> messaggio
+
+menu 2: gioca ->
+	crea nuovo eroe
+	elimina eroe
+	esci
+
+Entita
+	-Utente
+		IdUtente
+		Nickname
+		Password
+		IsAdmin
+
+	-Personaggio
+		IdPersonaggio
+		Nome
+		IdCategoria
+		Arma
+		Livello
+		PuntiVita
+
+		-Eroe
+			IdUtente
+			PuntiAccumulati
+		-Mostro
+
+	-Arma
+		IdArma
+		Nome
+		IdCategoria
+
+
+
+	-Partita
+		IdEroe
+		IdMostro
