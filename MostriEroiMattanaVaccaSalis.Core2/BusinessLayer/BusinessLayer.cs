@@ -107,9 +107,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return false;
         }
 
-        public Monster GetRandomMonster(int level)
+        public User GetUser(string username)
         {
-            throw new NotImplementedException();
+            User u = userRepo.Fetch(u => u.NickName == username).FirstOrDefault();
+            return u;
+            
         }
     }
 }
