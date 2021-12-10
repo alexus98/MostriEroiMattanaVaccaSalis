@@ -301,7 +301,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             }
         }
 
-        private static void CreaEroe()
+        private static void CreaEroe(User u)
         {
             string heroName;
             bool isNameUsed, flagWeapon, success;
@@ -354,7 +354,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
             } while (flagWeapon == false);
             
             hero.IdWeapon = idWeapon;
-            //hero.IdUser = utente.IdUser;
+            hero.IdUser = u.IdUser;
             success = bl.InsertHero(hero);
             
             Console.WriteLine("Eroe inserito");
