@@ -45,7 +45,9 @@ namespace MostriEroiMattanaVaccaSalis.Core.Entities
         public void Attack(Character enemy, Weapon w)
         {
             enemy.LifePoints -= w.Damage;
+            Console.WriteLine($"\n{this.Name} sta usando {w.WeaponName}!!");
             Console.WriteLine($"Inflitti {w.Damage} Punti Danno!");
+            Console.WriteLine($"A {enemy.Name} sono rimasti: {enemy.LifePoints} life points.");
         }
     }
 
