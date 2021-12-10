@@ -127,14 +127,16 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             Hero hero = new Hero();
             bool exit;
+            bool stessoeroe = false;
             do
             {
-               hero = SceltaHero(u);
-               if (hero == null)
-               {
-                  hero = CreaEroe(u);
-               }
-                
+                if(stessoeroe)
+                    hero = SceltaHero(u);
+
+                if (hero == null)
+                {
+                    hero = CreaEroe(u);
+                }
 
                 Hero chosenHero = Gioca(u, hero);
                 Console.WriteLine("Vuoi continuare a giocare? Schiaccia [S] per continuare");
@@ -145,14 +147,12 @@ namespace MostriEroiMattanaVaccaSalis.Client
                     Console.WriteLine("Vuoi continuare con lo stesso eroe? Schiaccia [S] per continuare");
                     char risp2 = Console.ReadKey().KeyChar;
 
-                    if (risp2 == 'S')
+                    if (risp2 != 'S')
                     {
-                        hero = chosenHero;
+                        stessoeroe = true;
                     }
                     else
-                    {
-                        hero = new Hero();
-                    }
+                        stessoeroe = false;
                 }
                 else
                     exit = false;

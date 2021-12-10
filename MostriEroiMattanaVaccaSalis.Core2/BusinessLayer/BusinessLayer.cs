@@ -35,7 +35,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
         }
 
 
-        public List<Hero> GetAllHeroes()
         public List<Hero> GetAllHeroes(User u)
         {
             return heroRepo.Fetch().Where(e => e.IdUser == u.IdUser).ToList();
