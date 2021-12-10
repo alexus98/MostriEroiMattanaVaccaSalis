@@ -39,11 +39,9 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             } while (choice != 'Q');
             
-
         }
 
         
-
         internal static void AdminMenu(User u)
         {
             char choice;
@@ -526,7 +524,6 @@ namespace MostriEroiMattanaVaccaSalis.Client
             else
                 return true;
         }
-
 
         private static void PrintWeaponsByCategory(CatEnum cat)
         {

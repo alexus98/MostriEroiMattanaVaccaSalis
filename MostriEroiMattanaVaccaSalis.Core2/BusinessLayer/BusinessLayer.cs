@@ -50,7 +50,6 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
             return heroRepo.Delete(eroe);
         }
 
-        
 
         public bool CheckCredentials(string username, string password)
         {

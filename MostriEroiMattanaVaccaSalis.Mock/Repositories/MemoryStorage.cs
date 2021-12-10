@@ -11,7 +11,7 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
     {
         public static List<Hero> Heroes = new List<Hero>()
         {
-            new Hero{ Id = 1, Name = "Alexus98", Level = 2, Exp = 10, LifePoints = 40, Category=CatEnum.Warrior, IdWeapon= 5, IdUser=2},
+            new Hero{ Id = 1, Name = "Alexus98", Level = 5, Exp = 10, LifePoints = 40, Category=CatEnum.Warrior, IdWeapon= 5, IdUser=2},
             new Hero{ Id = 2, Name = "MarkS", Level = 3, Exp = 20, LifePoints = 65, Category=CatEnum.Warrior, IdWeapon= 5, IdUser=3},
             new Hero{ Id = 3, Name = "Yuko94", Level = 2, Exp = 45, LifePoints = 35, Category=CatEnum.Magician, IdWeapon= 6, IdUser=1},
         };
