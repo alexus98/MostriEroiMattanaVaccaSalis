@@ -214,8 +214,8 @@ namespace MostriEroiMattanaVaccaSalis.Client
             if(hero.Level >= 3)
                 u.IsAdmin = true;
 
-            bl.UpdateHero(hero);
-            //update user
+            UpdateHero(hero);
+            UpdateUser(u);
              
         }
 
@@ -535,9 +535,14 @@ namespace MostriEroiMattanaVaccaSalis.Client
         {
             bl.UpdateHero(h);
         }
+
+        private static void UpdateUser(User u)
+        {
+            bl.UpdateUser(u);
+        }
         #endregion
-        
-        
+
+
     }
 }
 
