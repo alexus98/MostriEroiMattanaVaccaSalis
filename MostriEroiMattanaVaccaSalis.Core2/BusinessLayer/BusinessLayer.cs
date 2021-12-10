@@ -106,5 +106,12 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
                     return false;
             return false;
         }
+
+        public User GetUser(string username)
+        {
+            User u = userRepo.Fetch(u => u.NickName == username).FirstOrDefault();
+            return u;
+            
+        }
     }
 }

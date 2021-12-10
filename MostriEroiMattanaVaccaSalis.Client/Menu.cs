@@ -145,6 +145,7 @@ namespace MostriEroiMattanaVaccaSalis.Client
 
             if (bl.isUserAdmin(username))
             {
+                User user = bl.GetUser(username);
                 AdminMenu();
             }
             else UserMenu();
