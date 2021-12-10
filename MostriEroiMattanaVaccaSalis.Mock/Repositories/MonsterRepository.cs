@@ -12,7 +12,16 @@ namespace MostriEroiMattanaVaccaSalis.Mock.Repositories
     {
         public IEnumerable<Monster> Fetch(Func<Monster, bool> lambda = null)
         {
-            throw new NotImplementedException();
+            if (lambda != null)
+                return MemoryStorage.Monster.Where(lambda);
+            return MemoryStorage.Monster;
+        }
+
+        public bool Add(Monster monster)
+        {
+            monster.Id = MemoryStorage.Monster.Last().Id + 1;
+            MemoryStorage.Monster.Add(monster);
+            return true;
         }
     }
 }
