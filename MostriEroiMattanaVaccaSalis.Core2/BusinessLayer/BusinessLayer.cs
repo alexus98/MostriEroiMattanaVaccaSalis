@@ -128,7 +128,11 @@ namespace MostriEroiMattanaVaccaSalis.Core.BusinessLayer
 
         public Monster GetRandomMonster(int level)
         {
-            throw new NotImplementedException();
+            List<Monster> monsters = monsterRepo.Fetch().Where(m => m.Level <= level).ToList();
+            Random random = new Random();
+            int i = random.Next(monsters.Count);
+            Monster monster = monsters[i];
+            return monster;
         }
     }
 }
